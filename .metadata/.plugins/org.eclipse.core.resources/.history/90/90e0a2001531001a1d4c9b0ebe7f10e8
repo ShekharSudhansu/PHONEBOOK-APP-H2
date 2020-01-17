@@ -1,0 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+ <body style="background-color:#808080">
+ 	<h1 style="color:#0000FF;text-align: center;background-color: #800000">Passport Registartion Form</h1>
+ 	<fieldset>
+ 		<legend>Persional Details</legend>
+ 	</fieldset>
+ 
+ </body>

@@ -1,0 +1,44 @@
+package com.nt.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.nt.domain.EducationaldetailsBean;
+import com.nt.domain.HigherDegreeBean;
+import com.nt.domain.PassoutYearBean;
+import com.nt.domain.UniversityBean;
+import com.nt.service.PassportRegistrationMngtService;
+
+@Controller
+public class EducationalDetailsController {
+	@Autowired
+	private PassportRegistrationMngtService passportService;
+	@RequestMapping("/showEDform")
+		public String shoeEDForm(Model model) {
+		List<String> degreeName=new ArrayList<String>();
+		EducationaldetailsBean edBean=new EducationaldetailsBean();
+		model.addAttribute("edBean", edBean);
+			List<HigherDegreeBean> listDegree = passportService .fetchAllDegree();
+			List<UniversityBean> listUnv = passportService.fetchAllUnv();
+			model.addAttribute("listUnv", listUnv);
+			List<PassoutYearBean> listYr = passportService.fetchPassoutYr();
+			
+			
+			
+			
+			degreeName.add("---select---");
+			for(HigherDegreeBean dBean:listDegree) {
+				degreeName.add(dBean.getDegreeName());
+			}
+			model.addAttribute("degreeName",degreeName);
+			
+			
+			model.addAttribute("listYr",listYr);
+			return "educationalDetailsForm";
+		}
+}

@@ -1,0 +1,9 @@
+package com.nt.service;
+
+import lombok.Data;
+
+@Data
+public class HigherDegreeBean {
+	private Integer digreeId;
+	private String  degreeName;
+}

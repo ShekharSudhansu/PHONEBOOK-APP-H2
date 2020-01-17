@@ -1,0 +1,24 @@
+package com.nt.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.nt.domain.CitizenDetailsDomain;
+
+@Controller
+public class CitizenDetailsController {
+	
+	
+		/**
+		 * This method for launching form page
+		 * @param model
+		 * @return
+		 */
+	
+		@RequestMapping("/")
+		public String showForm(Model model) {
+			CitizenDetailsDomain ctDomain=new CitizenDetailsDomain();
+			model.addAttribute("domain", ctDomain);
+		}
+}

@@ -1,0 +1,7 @@
+package com.nt.repositry;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface StateRepositry extends JpaRepository<T, ID> {
+
+}

@@ -1,0 +1,53 @@
+package com.nt.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
+
+import com.nt.domain.CitizenDetailsDomain;
+import com.nt.entity.CitizenDetailsEntity;
+import com.nt.entity.StateMasterEntity;
+import com.nt.repositry.StateRepositry;
+@Service
+public class SsaMngtServiceImpl implements SsaMngtService{
+	@Autowired	
+	private StateRepositry sRepo; 
+	@Override
+	public List<String> getAllStates() {
+			List<StateMasterEntity> findAll = sRepo.findAll();
+			List<String> statesList=new ArrayList<String>();
+			findAll.forEach(entity->{
+				statesList.add(entity.getStateName());
+			});
+
+		return statesList;
+	}
+	@Override
+	public CitizenDetailsDomain saveCitizenDetails(CitizenDetailsDomain domain) {
+		CitizenDetailsEntity entity=new CitizenDetailsEntity();
+		BeanUtils.copyProperties(domain, entity);
+		entity.setStateName(getStateCodeByStateName(domain.getStateName()));
+		
+		return null;
+	}
+	@Override
+	public String getStateCodeByStateName(String stateName) {
+		 String codeByStateName = sRepo.getCodeByStateName(stateName);
+		return codeByStateName;
+	}
+			private String getRandomSSNo(int no) {
+				StringBuilder sb=new StringBuilder();
+				long nextLong = new Random(no).nextLong();
+				String randomStr = String.valueOf(nextLong);
+				String substring = randomStr.substring(0,2);
+				sb.append(substring+"-");
+				substring = randomStr.substring(3,4);
+				sb.append(substring+"-");
+
+			}
+}

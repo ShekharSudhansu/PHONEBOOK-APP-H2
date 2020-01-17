@@ -1,0 +1,28 @@
+package com.nt.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.persistence.Entity;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.nt.entity.StateMasterEntity;
+import com.nt.repositry.StateRepositry;
+
+public class SsaMngtServiceImpl implements SsaMngtService{
+	@Autowired	
+	private StateRepositry sRepo; 
+	@Override
+	public List<String> getAllStates() {
+			List<StateMasterEntity> findAll = sRepo.findAll();
+			List<String> statesList=new ArrayList<String>();
+			findAll.forEach(entity->{
+				statesList.add(entity.getStateName());
+			});
+
+		return statesList;
+	}
+
+}

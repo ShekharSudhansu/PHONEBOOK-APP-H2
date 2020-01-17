@@ -1,0 +1,27 @@
+package com.nt.entity;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CITIZEN_DTLS")
+@DATA
+public class CitizenDetailsEntity {
+		@Id
+		@Column(name="SS_NO",length = 20)
+		private String ssNo;
+		@Column(name="FIRST_NAME",length = 10)
+		private String fname;
+		@Column(name = "LAST_NAME")
+		private String lname;
+		@Column(name="GENDER")
+		private String gender;
+		@Column(name ="GENDER",length = 10)
+		private Date dob;
+		@Column(name="STATE_NAME", length = 10)
+		private String stateName;
+}

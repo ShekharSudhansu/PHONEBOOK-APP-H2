@@ -1,0 +1,69 @@
+package com.nt.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.nt.domain.EducationaldetailsBean;
+import com.nt.domain.HigherDegreeBean;
+import com.nt.domain.PassoutYearBean;
+import com.nt.domain.UniversityBean;
+import com.nt.service.PassportRegistrationMngtService;
+
+@Controller
+public class EducationalDetailsController {
+	@Autowired
+	private PassportRegistrationMngtService passportService;
+	@RequestMapping("/showEDform")
+		public String shoeEDForm(Model model,HttpServletRequest req) {
+		List<String> degreeName=new ArrayList<String>();
+		List<String> unvName=new ArrayList<String>();
+		List<Integer> passOutYears=new ArrayList();
+		EducationaldetailsBean edBean=new EducationaldetailsBean();
+				edBean.setPid(Integer.parseInt(req.getParameter("pid")));
+		model.addAttribute("edBean", edBean);
+			List<HigherDegreeBean> listDegree = passportService .fetchAllDegree();
+			degreeName.add("---select---");
+			for(HigherDegreeBean dBean:listDegree) {
+				degreeName.add(dBean.getDegreeName());
+			}
+			model.addAttribute("degreeName",degreeName);
+			
+			
+			List<UniversityBean> listUnv = passportService.fetchAllUnv();
+				unvName.add("---select---");
+			for(UniversityBean unvBean:listUnv) {
+				unvName.add(unvBean.getUnvName());
+			}
+			model.addAttribute("ListUnvName", unvName);
+
+			List<PassoutYearBean> listYr = passportService.fetchPassoutYr();
+			for(PassoutYearBean yrBean:listYr) {
+				passOutYears.add(yrBean.getYear());
+			}
+			model.addAttribute("passOutYears",passOutYears);
+			System.out.println("controller"+passOutYears);
+			return "educationalDetailsForm";
+		}
+	@RequestMapping("/handleEdNextBtn")
+	public String handleEDnextBtn(@ModelAttribute("edBean")EducationaldetailsBean edBean,Model model) {
+		EducationaldetailsBean saveED = passportService.saveEDdetails(edBean);
+		 if(saveED!=null) {
+			 if(saveED.getEid()>0) {
+				 return "redirect:/showreViewForm?pid="+saveED.getPid()+"&eid="+saveED.getEid();
+			 }
+		 }
+			
+		
+		return null;
+	}
+	
+	
+}

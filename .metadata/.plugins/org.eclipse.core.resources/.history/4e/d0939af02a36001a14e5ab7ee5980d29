@@ -1,0 +1,11 @@
+package com.nt.repositry;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.nt.entity.StateMasterEntity;
+
+public interface StateRepositry extends JpaRepository<StateMasterEntity, Integer> {
+	@Query("SELECT statecode FROM StateMasterEntity where statecode=:stateName")		
+	public String getCodeByStateName(String stateName);
+}

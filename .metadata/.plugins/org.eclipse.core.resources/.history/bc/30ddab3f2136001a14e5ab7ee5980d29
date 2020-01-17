@@ -1,0 +1,13 @@
+package com.nt.service;
+
+import java.util.List;
+
+public class SsaMngtServiceImpl implements SsaMngtService{
+
+	@Override
+	public List<String> getAllStates() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

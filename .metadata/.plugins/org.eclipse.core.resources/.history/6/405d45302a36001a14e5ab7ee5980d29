@@ -1,0 +1,9 @@
+package com.nt.controller;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.nt.domain.CitizenDetailsDomain;
+
+public interface CitizenRepositry extends JpaRepository<CitizenDetailsDomain,String>{
+
+}

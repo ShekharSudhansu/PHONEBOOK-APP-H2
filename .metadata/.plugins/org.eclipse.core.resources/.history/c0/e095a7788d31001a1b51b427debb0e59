@@ -1,0 +1,6 @@
+package com.nt.domain;
+
+public class PassportAppDetaisBean {
+		private Integer passPortId;
+		private Integer pid;
+}

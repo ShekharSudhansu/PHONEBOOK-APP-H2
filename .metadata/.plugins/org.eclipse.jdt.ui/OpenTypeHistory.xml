@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=01PhoneBook-Application/src\/main\/java&lt;com.nt.service{ContactInfoService.java[ContactInfoService" modifiers="513" timestamp="1577423022626"/>
+<typeInfo handle="=02UserRegistartion-Application/src\/main\/java&lt;com.nt.service{UserMngtService.java[UserMngtService" modifiers="513" timestamp="1577450178786"/>
+<typeInfo handle="=04PassportRegistrationApplication/src\/main\/java&lt;com.nt.service{PassportRegistrationMngtService.java[PassportRegistrationMngtService" modifiers="513" timestamp="1578431856815"/>
+<typeInfo handle="=SSA-Web/C:\/Users\/hp\/.m2\/repository\/org\/springframework\/data\/spring-data-jpa\/2.2.3.RELEASE\/spring-data-jpa-2.2.3.RELEASE.jar&lt;org.springframework.data.jpa.repository(JpaRepository.class[JpaRepository" modifiers="1537" timestamp="1578764182980"/>
+</typeInfoHistroy>

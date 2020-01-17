@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="02UserRegistartion-Application"/>
+<aop-project name="03RegistartionApplication"/>
+<aop-project name="SSA-Web"/>
+<aop-project name="04PassportRegistrationApplication"/>
+<aop-project name="01PhoneBook-Application"/>
+</aop-reference-model>

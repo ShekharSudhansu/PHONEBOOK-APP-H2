@@ -1,0 +1,5 @@
+package com.nt.constant;
+
+public class PassportAppConstant {
+		public static final String PERSIONAL_DTL_STR="persionaldetailsForm";
+}

@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<body style="background-color: #229954">
+	<h1 style="text-align: center; background-color: orange">Educational
+		Details Form</h1>
+	<fieldset style="border-color: red">
+		<legend style="color: yellow; text-align: center">
+			<b>Educational details</b>
+		</legend>
+		<table style="border-color: cyan" border="1" align="center">
+		<form:form action="/handleEdNextBtn" modelAttribute="edBean">
+			<form:hidden path="pid"/>
+			<tr style="color: #F1C40F">
+				<td>Higher Degree</td>
+				<td><form:select path="degree" items="${degreeName}">
+					</form:select></td>
+			</tr>
+			<tr style="color: #F1C40F">
+				<td>University Name</td>
+				<td><form:select path="unvName" items="${ListUnvName}">
+					</form:select></td>
+			</tr>
+			 <tr style="color: #F1C40F">
+				<td>PassOut Year</td>
+				<td><form:select path="degree" items="${passOutYears}">
+					</form:select></td>
+			</tr>
+			<tr>
+				<td><a href="/?pid=${edBean.pid}" style="background-color: white">Previous</a></td>
+				<td><input type="submit" value="next"></td>
+				 
+			</tr> 
+			
+			</form:form>
+		</table>
+
+	</fieldset>
+</body>

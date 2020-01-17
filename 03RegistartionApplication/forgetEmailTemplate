@@ -1,0 +1,3 @@
+Hii <br>
+	your email id ${EMAIL}. 
+	your password is ${PWD}

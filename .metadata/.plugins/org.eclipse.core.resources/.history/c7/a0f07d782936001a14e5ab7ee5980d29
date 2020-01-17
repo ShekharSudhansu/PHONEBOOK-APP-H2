@@ -1,0 +1,13 @@
+package com.nt.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CITIZEN_DTLS")
+public class CitizenDetailsEntity {
+		@Id
+		@Column(name="SS_NO",length = 20)
+		private String ssNo;
+}

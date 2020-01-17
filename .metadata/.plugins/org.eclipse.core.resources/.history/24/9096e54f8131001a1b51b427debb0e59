@@ -1,0 +1,102 @@
+package com.nt.service;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nt.domain.HigherDegreeBean;
+import com.nt.domain.PassoutYearBean;
+import com.nt.domain.PersionalDetailsBean;
+import com.nt.domain.UniversityBean;
+import com.nt.entity.HigherDegreeEntity;
+import com.nt.entity.PassoutYrMstEntity;
+import com.nt.entity.PersionalDetailsEntity;
+import com.nt.entity.UniversityEntity;
+import com.nt.repositry.HigherDegreeRepositry;
+import com.nt.repositry.PassoutYearRepositry;
+import com.nt.repositry.PersionalDetailsRepositry;
+import com.nt.repositry.UniversityRepositry;
+/**
+ * This class for manage all bussines operation
+ * @author shekhar
+ *
+ */
+@Service
+public class PassportRegistrationMngtServiceImpl implements PassportRegistrationMngtService {
+	@Autowired
+	private PersionalDetailsRepositry persionalDtlRepo;
+	@Autowired
+	private HigherDegreeRepositry degreeRepo;
+	@Autowired
+	private UniversityRepositry unvRepo;
+	@Autowired
+	private PassoutYearRepositry yrRepo;
+	
+	/**
+	 * This method used for save persional details data 
+	 */
+	@Override
+	public PersionalDetailsBean savePersionalDetails(PersionalDetailsBean pBean) {
+			PersionalDetailsEntity entity=new PersionalDetailsEntity();
+			BeanUtils.copyProperties(pBean, entity);
+			PersionalDetailsEntity save = persionalDtlRepo.save(entity);
+			BeanUtils.copyProperties(entity, pBean);
+			return pBean;
+	}
+	
+	/**
+	 * This method for fetching all records of Degree_master table
+	 */
+	
+	@Override
+	public List<HigherDegreeBean> fetchAllDegree() {
+		List<HigherDegreeEntity> listEntity = degreeRepo.findAll();
+		List<HigherDegreeBean> listBean=new ArrayList<HigherDegreeBean>();
+			listEntity.forEach(entity->{
+				HigherDegreeBean dbean=new HigherDegreeBean();
+				BeanUtils.copyProperties(entity, dbean);
+				listBean.add(dbean);
+			}
+			
+					);
+		return  listBean;
+	}
+
+	@Override
+	public List<UniversityBean> fetchAllUnv() {
+		List<UniversityEntity> listUnvEntity = unvRepo.findAll();
+		List<UniversityBean> listUnvBean=new ArrayList();
+		listUnvEntity.forEach(entity->{
+			UniversityBean unvBean=new UniversityBean();
+			BeanUtils.copyProperties(entity, unvBean);
+			listUnvBean.add(unvBean);
+		});
+		return listUnvBean;
+	}
+
+	@Override
+	public List<PassoutYearBean> fetchPassoutYr() {
+			List<PassoutYrMstEntity> listTrEntity = yrRepo.findAll();
+			List<PassoutYearBean> listYrBean=new ArrayList();
+			listTrEntity.forEach(entity->{
+				PassoutYearBean yrBean=new PassoutYearBean();
+				BeanUtils.copyProperties(entity, yrBean);
+				listYrBean.add(yrBean);		
+			});
+			System.out.println("Entity"+listTrEntity);
+			System.out.println("service"+listYrBean);
+		return listYrBean;
+	}
+
+	@Override
+	public PersionalDetailsBean fecthDetailsById(Integer pid) {
+		PersionalDetailsBean pdBean=new PersionalDetailsBean();
+		PersionalDetailsEntity detailsByIdEntity = persionalDtlRepo.getDetailsById(pid);
+		BeanUtils.copyProperties(detailsByIdEntity, pdBean);
+		return pdBean;
+	}
+	 }

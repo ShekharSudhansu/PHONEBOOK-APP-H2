@@ -1,0 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+ <h1 style="background-color:orange;text-align:center;">PassPort Registration SuccessFull</h1>
+ <p style="background-color:silver;text-align: center; "><h1>Your passport application submited sucessfully<br>
+ Passport Number:${passPortNo}<br>
+ 		Thank You......!!!!</p>

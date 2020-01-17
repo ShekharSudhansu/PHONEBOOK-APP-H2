@@ -1,0 +1,16 @@
+package com.nt.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.nt.constant.PassportAppConstant;
+
+@Controller
+public class SuccessPageController {
+		@RequestMapping("/sussPage")
+		public String showSuccPage(HttpServletRequest req) {
+			return PassportAppConstant.SUCC_PAGE_STR;
+		}
+}

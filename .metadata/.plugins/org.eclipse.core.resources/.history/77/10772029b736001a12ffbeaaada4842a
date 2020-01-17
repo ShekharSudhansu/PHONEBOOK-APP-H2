@@ -1,0 +1,13 @@
+package com.nt.service;
+
+import java.util.List;
+
+import com.nt.domain.CitizenDetailsDomain;
+
+
+public interface SsaMngtService {
+	public List<String> getAllStates();
+	public CitizenDetailsDomain saveCitizenDetails(CitizenDetailsDomain domain);
+	public String getStateCodeByStateName(String stateName);
+	public String getStateCodeBySSN(String ssNo);
+}

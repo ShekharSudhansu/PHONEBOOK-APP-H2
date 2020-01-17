@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+ 	
+ 	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+ 	
+ 		<table>
+ 			<form:form action="/handleConfirmBtn" modelAttribute="pAppDetails">
+ 			<form:hidden path="pid"/>
+ 			<tr><td>First name</td><td>${pDetails.fname}</td></tr>
+ 			<tr><td>Last name</td><td>${pDetails.lname}</td></tr>
+ 			<tr><td>Email Id</td><td>${pDetails.email}</td></tr>
+ 			<tr><td>Gender</td><td>${pDetails.gender}</td></tr>
+ 			<tr><td>Date Of Birth</td><td>${pDetails.dob}</td></tr>
+ 			
+ 		
+ 		</table>
+ 	</form:form>

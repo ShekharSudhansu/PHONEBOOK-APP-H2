@@ -1,0 +1,6 @@
+package com.nt.service;
+@Data
+public class HigherDegreeBean {
+	private Integer digreeId;
+	private String  degreeName;
+}

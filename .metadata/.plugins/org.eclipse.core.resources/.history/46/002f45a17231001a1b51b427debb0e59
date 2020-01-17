@@ -1,0 +1,12 @@
+package com.nt.entity;
+
+import javax.persistence.Entity;
+
+import lombok.Data;
+
+@Data
+@Entity
+public class HigherDegreeEntity {
+	private Integer digreeId;
+	private String  degreeName;
+}

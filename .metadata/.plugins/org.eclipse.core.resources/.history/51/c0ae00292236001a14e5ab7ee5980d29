@@ -1,0 +1,18 @@
+package com.nt.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.nt.repositry.StateRepositry;
+
+public class SsaMngtServiceImpl implements SsaMngtService{
+	@Autowired	
+	private StateRepositry sRepo; 
+	@Override
+	public List<String> getAllStates() {
+		
+		return null;
+	}
+
+}

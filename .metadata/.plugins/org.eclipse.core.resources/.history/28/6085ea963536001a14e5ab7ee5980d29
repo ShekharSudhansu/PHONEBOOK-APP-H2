@@ -1,0 +1,12 @@
+package com.nt.repositry;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.nt.domain.CitizenDetailsDomain;
+import com.nt.entity.CitizenDetailsEntity;
+
+public interface CitizenRepositry extends JpaRepository<CitizenDetailsEntity,String>{
+	@Query("")
+	public String getStateCode(String ssNo);
+}

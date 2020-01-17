@@ -1,0 +1,13 @@
+package com.nt.service;
+
+import com.nt.domain.HigherDegreeBean;
+import com.nt.domain.PassoutYearBean;
+import com.nt.domain.PersionalDetailsBean;
+import com.nt.domain.UniversityBean;
+
+public interface PassportRegistrationMngtService {
+	public PersionalDetailsBean savePersionalDetails(PersionalDetailsBean pBean);
+	public HigherDegreeBean fetchAllDegree();
+	public UniversityBean fetchAllUnv();
+	public PassoutYearBean fetchPassoutYr();
+}

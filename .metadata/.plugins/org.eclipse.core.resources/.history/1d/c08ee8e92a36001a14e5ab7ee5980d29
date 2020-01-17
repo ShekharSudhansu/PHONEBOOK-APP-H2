@@ -1,0 +1,10 @@
+package com.nt.repositry;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.nt.entity.StateMasterEntity;
+
+public interface StateRepositry extends JpaRepository<StateMasterEntity, Integer> {
+ 
+}

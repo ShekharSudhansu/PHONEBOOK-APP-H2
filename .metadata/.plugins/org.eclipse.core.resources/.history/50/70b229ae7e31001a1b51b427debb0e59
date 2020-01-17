@@ -1,0 +1,45 @@
+package com.nt.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.nt.constant.PassportAppConstant;
+import com.nt.domain.PersionalDetailsBean;
+import com.nt.service.PassportRegistrationMngtService;
+/**
+ * This method controll the PersionalDetailsForm
+ * @author HP
+ *
+ */
+@Controller
+public class PersionalDetailsController {
+	@Autowired
+	private PassportRegistrationMngtService persionalService;
+	
+	/**
+	 * This method for launching form page
+	 */
+	@RequestMapping("/")
+	public String showPersionalDetailsForm(Model model,HttpServletRequest req) {
+		PersionalDetailsBean pBean=new PersionalDetailsBean();
+		model.addAttribute("persionalDetailsBean",pBean);
+		return PassportAppConstant.PERSIONAL_DTL_STR;
+	}
+	
+	/**
+	 * This method for handle submition for persional details page
+	 */
+	@RequestMapping("/handlePDbtn")
+	public String handlePDnextBtn(@ModelAttribute("persionalDetailsBean")PersionalDetailsBean pdBean,Model model) {
+		 PersionalDetailsBean savePersionalDetails = persionalService.savePersionalDetails(pdBean);
+			 if(savePersionalDetails!=null) {
+				 return "redirect:/showEDform?pid="+savePersionalDetails.getPid();
+			 }
+		return null;
+	}
+}

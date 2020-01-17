@@ -1,0 +1,16 @@
+package com.nt.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="unv_master")
+public class UniversityEntity {
+	@Id
+	private Integer unvId;
+	private String  unvName;
+}

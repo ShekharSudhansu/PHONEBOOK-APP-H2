@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;04PassportRegistrationApplication-1&apos; to &apos;SSA-Web&apos;" description="Rename resource &apos;04PassportRegistrationApplication-1&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/04PassportRegistrationApplication-1" name="SSA-Web" stamp="1578931688155" updateReferences="true"/>
+</session>

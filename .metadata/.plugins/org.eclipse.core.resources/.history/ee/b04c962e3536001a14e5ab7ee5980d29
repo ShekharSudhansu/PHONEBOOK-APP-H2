@@ -1,0 +1,19 @@
+package com.nt.controller;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nt.service.SsaMngtService;
+
+@RestController
+public class CitizenDetailsRestController {
+	@Service
+	 private SsaMngtService service;
+		@GetMapping(name = "/getCode/{ssNo}",produces = "application/json")
+		public String getStateCode(@PathVariable("ssNo")String ssNo) {
+				
+			return null;
+		}
+}
